@@ -1,0 +1,110 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+
+body{background-color: antiquewhite;}
+
+.box1{
+    background-color: skyblue;
+}
+.box1 .child{
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 300px;
+    background-color: #f2f2f2;
+    margin: 30px auto; /* //마진병합현상 */
+    text-align: center;
+    border: 10px solid tomato;
+    /* border-radius: 10px;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-delay: 0.5s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.3, 0.97); */
+    /* transition: transform 0.3s cubic-bezier(0.25,0.1,0.3,0.97) 0.5s; */
+    /* transition: transform 0.3s backgrond-color 0.5s, color 0.3s 0.5s; */
+    transition: all 0.3s;
+    transition: 0.3s;
+}
+.box1 .child:hover{
+    transform: translateY(-30px);
+    background-color: cornflowerblue;
+    color: #f2f2f2;
+}
+
+.box2{
+    width: 400px;
+    font-size: 30px;
+    color: #000;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #FFB4B4;
+    overflow: hidden;
+    
+    
+}
+.box2>div{
+    transform: translateX(-100%);
+    transition: 0.5s cubic-bezier(0.03,0.75, 0.51,1.48 );
+
+    
+}
+.box2:hover>div{
+    transform:translateX(0)}
+.box2 .one{transition-delay: 0.3s;}
+.box2 .two{ transition-delay: 0.6s;}
+.box2 .three{ transition-delay: 0.9s;}
+
+.box3{width: 100px; height: 100px;
+background-color: gold;
+text-align: center; line-height: 100px;
+/* 애니메이션이름(keyframes의 name과 동일해야함) */
+animation-name: box3_ani;
+/* 애니메이션움직임지속시간 second의 약자(초) */
+animation-duration: 1s;
+/* 애니메이션 반복횟수(3)//무한반복(infinite) */
+animation-iteration-count:3;/*  infinite */
+/* 애니메이션 방향
+nomal 기본값
+alternate 정->역->정 
+alternate-reverse 역->정->역
+reverse 위치의 시작이 거꾸로*/
+animation-direction: alternate;
+/* 애니메이션의 지연시간 */
+animation-delay: 1s;
+/* 애니메이션의 가속도 */
+animation-timing-function: ease;
+/* 애니메이션의 시작전과 끝 후의 상태조절
+forwards 애니가 끝난상태에서 멈춤
+backwards 애니가 시작을 keyframs의 0%인 상태부터 시작 
+both =forwards + backwards*/
+animation-fill-mode: forwards;
+
+}
+
+/* 애니메이션움직임 제어 */
+@keyframes box3_ani{
+   /*  시작지점 */
+   from{margin-right: 300px;}
+   /*  도착지점 */
+   to{margin-left: 800px;}
+}
+
+.box4{width: 100px; height: 100px;
+background-color: gray;
+text-align: center; line-height: 100px;
+/* animation-name: box4;
+animation-duration: 4s;
+animation-iteration-count: 3;
+animation-timing-function: ease-in-out;
+animation-fill-mode: both;
+animation-delay:1s; */
+animation: box4 4s ease-in-out 1s 3;
+}
+
+@keyframes box4{
+    0%{transform: translate(0px,0px);}
+    25%{transform: translate(200px,0px);}
+    50%{transform: translate(200px,200px);}
+    75%{transform: translate(0px,200px);}
+    100%{transform: translate(0px,0px);}
+}
